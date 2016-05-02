@@ -5,6 +5,8 @@
  * https://github.com/krakjoe/pthreads/blob/master/examples/Pooling.php
  */
 
+require_once("vendor/autoload.php");
+
 require_once 'MyWorker.php';
 require_once 'MyWork.php';
 require_once 'MyDataProvider.php';
