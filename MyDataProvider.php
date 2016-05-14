@@ -14,7 +14,7 @@ class MyDataProvider extends Threaded
      * @var int How many items have been processed
      */
     private $processed = 0;
-    
+
     /**
      * Move to next element and return it
      * 
@@ -27,8 +27,7 @@ class MyDataProvider extends Threaded
         }
 
         $this->processed++;
-        
-        
-		return $this->processed;
+
+        return $this->processed;
 	}
 }

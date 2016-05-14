@@ -12,9 +12,9 @@ require_once 'MyWork.php';
 require_once 'MyDataProvider.php';
 
 if (extension_loaded("pthreads")) {
-    echo "Using pthreads\n";
+    echo "Using pthreads" . PHP_EOL;
 } else {
-    echo "Using polyfill\n";
+    echo "Using polyfill" . PHP_EOL;
 }
 
 $threads = 8;
@@ -26,7 +26,7 @@ $provider = new MyDataProvider();
 // Create pool of workers.
 $pool = new Pool($threads, 'MyWorker', [$provider]);
 
-echo 'Started at: ' . date('Y-m-d H:i:s') . PHP_EOL;
+$start = microtime(true);
 
 // In this case our threads are balanced. 
 // So it is good to create one thread per pool process.
@@ -37,4 +37,4 @@ for ($i = 0; $i < $workers; $i++) {
 
 $pool->shutdown();
 
-echo 'Finished at: ' . date('Y-m-d H:i:s') . PHP_EOL;
+printf("Done for %.2f seconds" . PHP_EOL, microtime(true) - $start);
